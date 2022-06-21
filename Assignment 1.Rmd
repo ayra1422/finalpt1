@@ -1,0 +1,31 @@
+---
+title: "Assignment 1"
+author: "ayesha"
+date: '2022-06-07'
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+For this please run install.packages("pacman")
+
+```{r}
+library(tidyverse)
+library(janitor)
+historic <- read.csv("https://data.cityofnewyork.us/api/views/833y-fsy8/rows.csv?accessType=DOWNLOAD")
+clean<-clean_names(historic)
+boroughs<-table(historic$BORO)
+barplot(boroughs)
+race<-table(historic$PERP_RACE)
+barplot(race)
+summary(historic)
+
+```
+
+For my project, I chose to look at a bar plot that would look at the boroughs with the most incidents and the race that of the perps.
